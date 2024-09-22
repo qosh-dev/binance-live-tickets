@@ -74,9 +74,9 @@ import { TicketModule } from './ticket.module';
       imports: [
         TicketModule.forRoot({
           redis: {
-            host: process.env.REDIS_HOST,
-            port: +process.env.REDIS_PORT,
-            password: process.env.REDIS_PASSWORD,
+            host: Envs.REDIS_HOST,
+            port: Envs.REDIS_PORT,
+            password: Envs.REDIS_PASSWORD,
           },
           percentageChange: {
             intervals: [2, 4, 5, 6, 10, 30, 60],
