@@ -17,6 +17,6 @@ export interface PriceChangeData {
   change: number;
 }
 
-export type PercentageChangeOptions = {
+export type TicketListenerOptions = {
   intervals: number[];
 };

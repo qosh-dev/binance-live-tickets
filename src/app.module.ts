@@ -11,7 +11,7 @@ import { TicketModule } from './ticket/ticket.module';
         port: Envs.REDIS_PORT,
         password: Envs.REDIS_PASSWORD,
       },
-      percentageChange: {
+      options: {
         intervals: [2, 4, 6,],
       },
     }),

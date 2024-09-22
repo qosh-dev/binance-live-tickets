@@ -1,8 +1,8 @@
 import { TICKET_PERCENTAGE_OPTIONS } from '../common';
 import {
-  PercentageChangeOptions,
   PriceChangeData,
   PriceRecord,
+  TicketListenerOptions,
 } from '../type/types';
 import { Ticker } from './ticket';
 
@@ -11,7 +11,7 @@ let singleton: TicketTransformer | null = null;
 export class TicketTransformer {
   private priceHistoryMap: Map<string, PriceRecord[]> = new Map();
 
-  private options: PercentageChangeOptions;
+  private options: TicketListenerOptions;
 
   static get instance() {
     if (!singleton) {

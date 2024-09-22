@@ -14,7 +14,7 @@ import { Ticker } from './model/ticket';
 import { TicketTransformer } from './model/transformer';
 import { TicketListener } from './ticket.listener';
 import { TicketService } from './ticket.service';
-import { HandlerType, PercentageChangeOptions } from './type/types';
+import { HandlerType, TicketListenerOptions } from './type/types';
 
 @Module({
   imports: [DiscoveryModule],
@@ -24,7 +24,7 @@ import { HandlerType, PercentageChangeOptions } from './type/types';
 export class TicketModule {
   static forRoot(options: {
     redis: RedisOptions;
-    percentageChange: PercentageChangeOptions;
+    options: TicketListenerOptions;
   }): DynamicModule {
     const publisher = {
       provide: TICKET_PUBLISHER_KEY,
@@ -37,7 +37,7 @@ export class TicketModule {
     };
     Reflect.defineMetadata(
       TICKET_PERCENTAGE_OPTIONS,
-      options.percentageChange,
+      options.options,
       TicketTransformer,
     );
 
