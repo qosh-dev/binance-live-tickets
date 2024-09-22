@@ -1,0 +1,22 @@
+version: '3.9'
+name: 'app'
+services:
+  redis:
+    image: redis:7.0.8-alpine
+    restart: always
+    command: /bin/sh -c "redis-server --requirepass $REDIS_PASSWORD --port $REDIS_PORT"
+    ports:
+      - $REDIS_PORT:6379
+    environment:
+      REDIS_HOSTS: redis:$REDIS_HOST:$REDIS_PORT
+      REDIS_DATABASES: 3
+      REDIS_PASSWORD: $REDIS_PASSWORD
+    networks:
+      - networks
+    volumes:
+      - ./volumes/redis:/data
+
+networks:
+  volumes:
+:
+  driver: bridge
